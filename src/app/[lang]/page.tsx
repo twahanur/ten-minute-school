@@ -7,10 +7,10 @@ export default function LangRootPage({ params }: { params: { lang: 'en' | 'bn' }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
       <div className="text-center p-8">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">
+        <h1 className="text-4xl font-bold   mb-4">
           10 Minute School Assessment
         </h1>
-        <p className="text-lg text-gray-600 mb-8">
+        <p className="text-lg   mb-8">
           Click the button below to view the IELTS course page.
         </p>
         <Link href={`/${params.lang}/course/${courseSlug}`}>

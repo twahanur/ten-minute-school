@@ -20,7 +20,7 @@ const CourseOutline = ({ features }) => {
             />
             <div>
               <h3 className="font-bold">{feature.title}</h3>
-              <p className="text-sm text-gray-600">{feature.subtitle}</p>
+              <p className="text-sm  ">{feature.subtitle}</p>
             </div>
           </div>
         ))}

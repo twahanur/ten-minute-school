@@ -8,10 +8,10 @@ const PurcessCard = ({ button, checklist, originalPrice, discountedPrice }) => {
     <div className="w-full border rounded-lg bg-white shadow-sm overflow-hidden">
       <div className="p-5 text-center">
         <div className="flex items-baseline justify-center gap-2 mb-3">
-          <span className="text-3xl font-bold text-gray-800">
+          <span className="text-3xl font-bold  ">
             {currency}{discountedPrice.toLocaleString("bn-BD")}
           </span>
-          <span className="text-lg text-gray-500 line-through">
+          <span className="text-lg   line-through">
             {currency}{originalPrice.toLocaleString("bn-BD")}
           </span>
         </div>
@@ -20,10 +20,10 @@ const PurcessCard = ({ button, checklist, originalPrice, discountedPrice }) => {
         </button>
       </div>
       <div className="p-5 border-t">
-        <h3 className="text-lg font-bold text-gray-900 mb-3">
+        <h3 className="text-lg font-bold   mb-3">
           এই কোর্সে যা যা থাকছে
         </h3>
-        <ul className="space-y-3 text-sm text-gray-700">
+        <ul className="space-y-3 text-sm  ">
           {checklist.filter((item) => !item.list_page_visibility).map((item) => (
             <li key={item.id} className="flex items-center gap-3">
               <Image src={item.icon} alt="" width={20} height={20} className="w-5 h-5 flex-shrink-0" />

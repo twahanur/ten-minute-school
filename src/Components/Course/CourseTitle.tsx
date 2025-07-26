@@ -22,12 +22,9 @@ const CourseTitle = (params) => {
             />
           ))}
         </div>
-        <span className="text-gray-300">(1,500+ Reviews)</span>
+        <span className=" ">(1,500+ Reviews)</span>
       </div>
-      <div
-        className=""
-        dangerouslySetInnerHTML={{ __html: description }}
-      />
+      <div className="" dangerouslySetInnerHTML={{ __html: description }} />
     </div>
   );
 };

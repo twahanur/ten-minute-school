@@ -8,8 +8,8 @@ import InstructorsSection from "@/Components/Course/InstructorsSection";
 import { useEffect } from "react";
 import CourseDetails from "@/Components/Course/CourseDetails";
 import CourseData from "@/Components/Course/CourseData";
-import Layout from "./layout";
 import PurcessCard from "@/Components/ui/PurcessCard";
+import MediaContent from "@/Components/ui/MediaContent";
 // This is an async Server Component
 type Props = {
   params: { slug: string; lang: "en" | "bn" };
@@ -43,20 +43,26 @@ export default async function ProductPage({ params }: Props) {
       </div>
     );
   }
-  console.log({ data });
+  console.log("Course Data:", data.sections);
 
   return (
-    <Layout
-      rightContent={
-        <PurcessCard
-          button={data.cta_text.name}
-          checklist={data.checklist}
-          originalPrice={1000}
-          discountedPrice={600}
-        />
-      }
-    >
-      <CourseData data={data} />
-    </Layout>
+    <div className="bg-white">
+      <div className="container mx-auto">
+        <div className="gap-4 text-black grid grid-cols-12 ">
+          <div className="col-span-8">
+            <CourseData data={data} />
+          </div>
+          <div className="mx-5 col-span-4 mt-50 bg-white p-2">
+            <MediaContent media={data.media} />
+            <PurcessCard
+              button={data.cta_text?.name}
+              checklist={data.checklist}
+              originalPrice="1000"
+              discountedPrice="800"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

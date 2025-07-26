@@ -39,11 +39,11 @@ import { useState } from "react";
                 {lectures.map((lecture, i) => (
                   <li
                     key={i}
-                    className="flex items-center justify-between text-gray-700"
+                    className="flex items-center justify-between  "
                   >
                     <div className="flex items-center gap-3">
                       <svg
-                        className="w-5 h-5 text-gray-500"
+                        className="w-5 h-5  "
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

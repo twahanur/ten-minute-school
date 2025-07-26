@@ -17,7 +17,7 @@ const Instructor = ({ instructor }) => {
           <div>
             <p className="font-bold text-xl">{instructor.name}</p>
             <div
-              className="prose prose-sm text-gray-600"
+              className="prose prose-sm  "
               dangerouslySetInnerHTML={{ __html: instructor.description }}
             />
           </div>
