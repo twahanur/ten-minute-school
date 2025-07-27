@@ -12,10 +12,6 @@ interface SearchBarProps {
   isMobile?: boolean
 }
 
-/**
- * SearchBar component with search functionality
- * Supports both desktop and mobile layouts
- */
 const SearchBar = memo(({ placeholder, onSearch, className = "", isMobile = false }: SearchBarProps) => {
   const [query, setQuery] = useState("")
 

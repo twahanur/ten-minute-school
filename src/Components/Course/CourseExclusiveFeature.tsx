@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import React from "react";
 
-const CourseExclusiveFeature = ({ data }) => {
+const CourseExclusiveFeature = ({ data }:any) => {
   if (!data || !Array.isArray(data.values)) return null;
   return (
     <section className="py-12">
@@ -12,7 +13,7 @@ const CourseExclusiveFeature = ({ data }) => {
           </h2>
         )}
         <div className="grid grid-cols-1 gap-10 border border-gray-200 rounded-lg md:p-6">
-          {data.values.map((feature, idx) => (
+          {data.values.map((feature:any, idx:number) => (
             <div
               key={feature.id || idx}
               className="flex flex-col justify-between md:flex-row gap-6 bg-gray-50 p-6  first:border-b-1"
@@ -23,7 +24,7 @@ const CourseExclusiveFeature = ({ data }) => {
                   {feature.title}
                 </h3>
                 <ul className="list-disc leading-loose list-inside text-gray-600 space-y-1">
-                  {feature.checklist.map((item, i) => (
+                  {feature.checklist.map((item:any, i:number) => (
                     <li key={i}>{item}</li>
                   ))}
                 </ul>

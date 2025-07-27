@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 
 // A simple checkmark icon component. You can replace this with an icon library if you have one.
@@ -14,7 +15,7 @@ const CheckmarkIcon = () => (
   </svg>
 );
 
-const CoursePointer = ({ data }) => {
+const CoursePointer = ({ data }:any) => {
   // If no data or values are provided, don't render the component.
   if (!data || !data.values || data.values.length === 0) {
     return null;
@@ -27,7 +28,7 @@ const CoursePointer = ({ data }) => {
 
       {/* Grid container for the list items */}
       <div className="grid grid-cols-1 md:border md:border-gray-300 rounded-2xl md:p-8 gap-x-12 gap-y-6 md:grid-cols-2">
-        {data.values.map((item) => (
+        {data.values.map((item:any) => (
           // Each list item with an icon and text
           <div key={item.id} className="flex items-start">
             <div className="mt-1">

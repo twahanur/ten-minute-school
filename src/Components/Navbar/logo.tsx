@@ -7,10 +7,6 @@ interface LogoProps {
   onClick?: () => void
 }
 
-/**
- * Logo component for 10 Minute School
- * Displays the brand logo with proper styling
- */
 const Logo = memo(({ className = "", onClick }: LogoProps) => {
   return (
     <div

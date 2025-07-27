@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import InstructorCard from "./Instructor";
 import CourseTitle from "./CourseTitle";
 import CourseOutline from "./CourseOutLine";
@@ -10,40 +12,36 @@ import CourseFaq from "./CourseFaq";
 import MediaContent from "../ui/MediaContent";
 import PurcessCard from "../ui/PurcessCard";
 
-export default function CourseData({ data }) {
+export default function CourseData({ data }:any) {
   if (!data) return null;
 
   const {
     title = "Untitled Course",
     description = "",
     media,
-    checklist,
     sections = [],
     seo = { schema: [] },
-    cta_text,
   } = data;
 
-  const instructor = sections.find((s) => s.type === "instructors")
+  const instructor = sections.find((s:any) => s.type === "instructors")
     ?.values?.[0];
-  const features = sections.find((s) => s.type === "features");
-  const about = sections.find((s) => s.type === "about");
-  const CoursePointerData = sections.find((s) => s.type === "pointers");
+  const features = sections.find((s:any) => s.type === "features");
+  const about = sections.find((s:any) => s.type === "about");
+  const CoursePointerData = sections.find((s:any) => s.type === "pointers");
   const feature_explanations = sections.find(
-    (s) => s.type === "feature_explanations"
+    (s:any) => s.type === "feature_explanations"
   );
   const groupEngagement = sections.find(
-    (s) => s.type === "group_join_engagement"
+    (s:any) => s.type === "group_join_engagement"
   );
-  const testimonials = sections.find((s) => s.type === "testimonials");
-  const faqData = sections.find((s) => s.type === "faq");
+  const testimonials = sections.find((s:any) => s.type === "testimonials");
+  const faqData = sections.find((s:any) => s.type === "faq");
   const CourseEngagementData = groupEngagement?.values?.[0];
-  console.log(media);
-  console.log(testimonials);
   // Parse schema safely
   let schemaData = {};
   try {
     const schema = seo?.schema?.find(
-      (s) =>
+      (s:any) =>
         s.meta_name === "ld-json" && s.meta_value.includes('"@type": "Product"')
     );
     if (schema) {

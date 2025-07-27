@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 
 // Using an SVG directly as a component for better control, but an <img> tag works too.
-const StarIcon = (props) => (
+const StarIcon = (props:any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -16,7 +17,7 @@ const StarIcon = (props) => (
   </svg>
 );
 
-const CourseHero = ({title, description}) => {
+const CourseHero = ({title, description}:any) => {
   const ratingText = "(82.6% শিক্ষার্থী কোর্স শেষে ৫ রেটিং দিয়েছেন)";
   return (
     <div className="w-full bg-[#100f29] text-white flex items-center min-h-[350px] py-16 px-4">

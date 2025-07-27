@@ -1,7 +1,19 @@
 import Image from "next/image";
 import React from "react";
 
-const CourseOutline = ({ features }) => {
+interface Feature {
+  id: string | number;
+  icon: string;
+  title: string;
+  subtitle: string;
+}
+
+interface FeaturesProps {
+  name: string;
+  values: Feature[];
+}
+
+const CourseOutline: React.FC<{ features: FeaturesProps }> = ({ features }) => {
   return (
     <div>
       <h2 className="md:text-2xl font-bold mb-4 py-5">{features.name}</h2>

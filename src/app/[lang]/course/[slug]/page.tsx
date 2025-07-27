@@ -1,35 +1,36 @@
-// app/[lang]/course/[slug]/page.tsx
-
 import { fetchProductData } from "@/lib/api";
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import CourseData from "@/Components/Course/CourseData";
 import PurcessCard from "@/Components/ui/PurcessCard";
 import MediaContent from "@/Components/ui/MediaContent";
 import HeaderWrapper from "@/Components/Navbar/headerWarper";
 import Footer from "@/Components/ui/Footer";
-// import HeaderWrapper from "@/Components/Navbar/HeaderWrapper"; // ✅ import this
+
+export type paramsType = Promise<{ lang: string; slug: string }>;
+
 type Props = {
-  params: { slug: string; lang: "en" | "bn" };
+  params: paramsType;
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const data = await fetchProductData(params.slug, params.lang);
-  if (!data || !data.seo) {
-    return {
-      title: "Course Not Found",
-    };
-  }
+
+
+
+export async function generateMetadata({ params }:Props): Promise<Metadata> {
+  const { slug, lang } = await params;
+  const data = await fetchProductData(slug, lang);
+
   return {
-    title: data.seo.title,
-    description: data.seo.description,
+    title: data?.seo?.title ?? "Course Not Found",
+    description: data?.seo?.description ?? "",
     openGraph: {
-      images: [data.seo.image],
+      images: [data?.seo?.image ?? ""],
     },
   };
 }
 
 export default async function ProductPage({ params }: Props) {
-  const data = await fetchProductData(params.slug, params.lang);
+  const { slug, lang } = await params;
+  const data = await fetchProductData(slug, lang);
 
   if (!data) {
     return (
@@ -41,7 +42,7 @@ export default async function ProductPage({ params }: Props) {
 
   return (
     <div className="bg-white">
-      <HeaderWrapper /> {/* ✅ use wrapper instead of direct Header */}
+      <HeaderWrapper />
 
       <div className="">
         <div className="gap-4 md:px-20 px-3 text-black grid grid-cols-12 ">
@@ -59,6 +60,7 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );

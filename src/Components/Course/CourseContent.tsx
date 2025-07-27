@@ -11,7 +11,7 @@ import { useState } from "react";
       ],
       "Academic Reading": ["Mock Test 1", "Mock Test 2"],
     };
-    const [openSection, setOpenSection] = useState("Introduction");
+    const [openSection, setOpenSection] = useState<string | null>("Introduction");
     return (
       <div className="bg-white p-6 rounded-lg border">
         <h2 className="text-2xl font-bold mb-4">কন্টেন্ট লিস্ট</h2>

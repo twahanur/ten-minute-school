@@ -1,7 +1,7 @@
 "use client"
 
 import { memo } from "react"
-import type { Language } from "../types/header"
+import { Language } from "../types/header"
 
 interface LanguageToggleProps {
   currentLanguage: Language
@@ -10,10 +10,6 @@ interface LanguageToggleProps {
   isMobile?: boolean
 }
 
-/**
- * Language toggle button component
- * Switches between Bengali and English
- */
 const LanguageToggle = memo(({ currentLanguage, onToggle, className = "", isMobile = false }: LanguageToggleProps) => {
   const getToggleText = () => {
     if (isMobile) {

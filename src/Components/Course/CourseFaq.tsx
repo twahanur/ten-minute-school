@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState } from "react";
 
 // Reusable Chevron Icon
-const ChevronIcon = ({ isOpen }) => (
+const ChevronIcon = ({ isOpen }:any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={`h-6 w-6 flex-shrink-0 text-gray-500 transition-transform duration-300 ${
@@ -16,11 +17,11 @@ const ChevronIcon = ({ isOpen }) => (
     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
   </svg>
 );
-const CourseFaq = ({ data }) => {
+const CourseFaq = ({ data }:any) => {
   const [openId, setOpenId] = useState(null);
   const [showAll, setShowAll] = useState(false);
   if (!data || !data.values || data.values.length === 0) return null;
-  const toggleItem = (id) => {
+  const toggleItem = (id:any) => {
     if (showAll) return;
     setOpenId(openId === id ? null : id);
   };
@@ -33,7 +34,7 @@ const CourseFaq = ({ data }) => {
         {data.name}
       </h1>
       <div className="space-y-2 md:border-2 rounded  border-gray-200 md:p-6">
-        {data.values.map((item) => {
+        {data.values.map((item:any) => {
           const isOpen = showAll || openId === item.id;
           return (
             <div

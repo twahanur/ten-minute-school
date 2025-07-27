@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
 import Image from "next/image"
@@ -5,23 +6,10 @@ import type React from "react"
 import { useState } from "react"
 import YouTube from "react-youtube"
 import { ChevronLeft, ChevronRight, Play } from "lucide-react"
-// import { Button } from "@/components/ui/button"
 
-interface MediaItem {
-  name: string
-  resource_type: "video" | "image"
-  resource_value: string
-  thumbnail_url?: string
-}
-
-interface MediaContentProps {
-  media: MediaItem[]
-}
-
-const MediaContent: React.FC<MediaContentProps> = ({ media }) => {
-  // Filter and combine videos and images for the gallery
+const MediaContent = ({ media }:any) => {
   const galleryItems = media.filter(
-    (m) => m.resource_type === "video" || (m.resource_type === "image" && m.name === "preview_gallery"),
+    (m:any) => m.resource_type === "video" || (m.resource_type === "image" && m.name === "preview_gallery"),
   )
 
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -48,7 +36,7 @@ const MediaContent: React.FC<MediaContentProps> = ({ media }) => {
     setIsVideoPlaying(true)
   }
 
-  const getThumbnailUrl = (item: MediaItem) => {
+  const getThumbnailUrl = (item:any) => {
     if (item.resource_type === "video") {
       return item.thumbnail_url || `https://img.youtube.com/vi/${item.resource_value}/maxresdefault.jpg`
     }
@@ -121,7 +109,7 @@ const MediaContent: React.FC<MediaContentProps> = ({ media }) => {
 
         {/* Slide Indicator */}
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-          {galleryItems.map((_, index) => (
+          {galleryItems.map((_:any, index:number) => (
             <button
               key={index}
               className={`w-2 h-2 rounded-full transition-colors ${
@@ -135,7 +123,7 @@ const MediaContent: React.FC<MediaContentProps> = ({ media }) => {
 
       {/* Thumbnail Navigation */}
       <div className="flex space-x-3 overflow-x-auto pb-2 scrollbar-hide">
-        {galleryItems.map((item, index) => (
+        {galleryItems.map((item:any, index:number) => (
           <div key={`${item.resource_type}-${item.resource_value}-${index}`} className="relative flex-shrink-0">
             <Image
               src={getThumbnailUrl(item) || "/placeholder.svg"}

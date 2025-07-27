@@ -1,8 +1,14 @@
 "use client";
 import { useState } from 'react';
 
+// Define the type for a section
+type Section = {
+  type: string;
+  name: string;
+};
+
 // This component displays the sticky navigation tabs
-const CourseTab = ({ sections }) => {
+const CourseTab = ({ sections }: { sections: Section[] }) => {
   const [activeTab, setActiveTab] = useState(sections[0]?.type || "");
 
   // In a real app, clicking these would scroll to the corresponding section.

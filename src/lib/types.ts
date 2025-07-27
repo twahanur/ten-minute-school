@@ -17,6 +17,7 @@ export interface ChecklistItem {
 }
 
 export interface CtaText {
+  name: unknown;
   primary: string;
   secondary: string;
 }

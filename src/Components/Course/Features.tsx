@@ -1,7 +1,21 @@
 import Image from "next/image";
 import React from "react";
 
-const Features = ({ features }) => {
+interface FeatureValue {
+  id: string | number;
+  icon: string;
+  title: string;
+  subtitle: string;
+}
+
+interface FeaturesProps {
+  features: {
+    name: string;
+    values: FeatureValue[];
+  };
+}
+
+const Features: React.FC<FeaturesProps> = ({ features }) => {
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4">{features.name}</h2>

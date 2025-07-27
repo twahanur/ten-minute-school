@@ -1,15 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
 import type React from "react"
 
 import { memo, useRef, useEffect } from "react"
 import { ChevronDown } from "lucide-react"
-import type { DropdownProps, NavigationItem } from "../types/header"
-
-/**
- * Reusable Dropdown component
- * Handles dropdown menu functionality with keyboard navigation
- */
+import { DropdownProps, NavigationItem } from "../types/header"
 const Dropdown = memo(({ label, items, isOpen, onToggle, onClose }: DropdownProps) => {
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -60,7 +56,7 @@ const Dropdown = memo(({ label, items, isOpen, onToggle, onClose }: DropdownProp
           className="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50 animate-in fade-in-0 zoom-in-95 duration-100"
           role="menu"
         >
-          {items.map((item, index) => (
+          {items.map((item:any, index:number) => (
             <button
               key={index}
               onClick={() => handleItemClick(item)}

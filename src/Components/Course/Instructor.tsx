@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import React from "react";
 
 // A small SVG component for the arrow icon
-const ArrowRightIcon = (props) => (
+const ArrowRightIcon = (props:any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -19,7 +20,14 @@ const ArrowRightIcon = (props) => (
   </svg>
 );
 
-const InstructorCard = ({ instructor }) => {
+interface Instructor {
+  name: string;
+  image: string;
+  description: string;
+  short_description: string;
+}
+
+const InstructorCard = ({ instructor }: { instructor: Instructor }) => {
   return (
     // Use responsive padding for the main container
     <div className="w-full mx-auto font-sans mt-6 md:p-6">

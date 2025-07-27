@@ -1,4 +1,4 @@
-export type Language = "bn" | "en"
+export type Language = string
 
 export interface NavigationItem {
   label: string

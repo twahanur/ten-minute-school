@@ -1,8 +1,8 @@
 "use client"
 
 import { memo } from "react"
-import type { Translation } from "../types/header"
 import Dropdown from "./dropdown"
+import { Translation } from "../types/header"
 
 interface NavigationProps {
   translation: Translation

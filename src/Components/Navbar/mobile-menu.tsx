@@ -2,8 +2,8 @@
 
 import { memo } from "react"
 import { Phone } from "lucide-react"
-import type { Translation, Language } from "../types/header"
 import LanguageToggle from "./language-toggle"
+import { Language, Translation } from "../types/header"
 
 interface MobileMenuProps {
   isOpen: boolean

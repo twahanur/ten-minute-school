@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import { useState, useEffect } from "react";
 
 // Chevron Icon Component
-const ChevronIcon = ({ isOpen }) => (
+const ChevronIcon = ({ isOpen }:any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={`h-6 w-6 flex-shrink-0 text-gray-500 transition-transform duration-300 ${
@@ -17,7 +18,7 @@ const ChevronIcon = ({ isOpen }) => (
   </svg>
 );
 
-export default function CourseDetails({ data }) {
+export default function CourseDetails({ data }:any) {
   const [openId, setOpenId] = useState(null);
 
   // Handle dynamic default open item after data load
@@ -32,7 +33,7 @@ export default function CourseDetails({ data }) {
     return null;
   }
 
-  const toggleItem = (id) => {
+  const toggleItem = (id:any) => {
     setOpenId((prevId) => (prevId === id ? null : id));
   };
 
@@ -43,7 +44,7 @@ export default function CourseDetails({ data }) {
       </h2>
 
       <div className="space-y-2 md:p-5 md:border border-gray-200 rounded-lg">
-        {data.values.map((item) => {
+        {data.values.map((item:any) => {
           const isOpen = openId === item.id;
 
           return (

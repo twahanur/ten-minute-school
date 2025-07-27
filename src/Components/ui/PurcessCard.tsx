@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import React from "react";
 
-const PurcessCard = ({ button, checklist, originalPrice, discountedPrice }) => {
+const PurcessCard = ({ button, checklist, originalPrice, discountedPrice }:any) => {
   const currency = "৳";
   
   return (
@@ -24,7 +25,7 @@ const PurcessCard = ({ button, checklist, originalPrice, discountedPrice }) => {
           এই কোর্সে যা যা থাকছে
         </h3>
         <ul className="space-y-3 text-sm  ">
-          {checklist.filter((item) => !item.list_page_visibility).map((item) => (
+          {checklist.filter((item:any) => !item.list_page_visibility).map((item:any) => (
             <li key={item.id} className="flex items-center gap-3">
               <Image src={item.icon} alt="" width={20} height={20} className="w-5 h-5 flex-shrink-0" />
               <span>{item.text}</span>

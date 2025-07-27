@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 import React from "react";
 
-const CourseEngagementCard = ({ data }) => {
+const CourseEngagementCard = ({ data }:any) => {
   // If no data is provided, render nothing to avoid errors.
   if (!data) {
     return null;
