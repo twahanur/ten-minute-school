@@ -1,0 +1,36 @@
+import type { Translation } from "../types/header"
+
+export const translations: Record<string, Translation> = {
+  bn: {
+    searchPlaceholder: "কিসের কোর্স, কিংবা স্কুল প্রোগ্রাম সার্চ করুন...",
+    mobileSearchPlaceholder: "সার্চ করুন...",
+    class: "ক্লাস ৬-১২",
+    skills: "স্কিলস",
+    liveExam: "লাইভ পরীক্ষা",
+    admissionGuide: "অ্যাডমিশন গা��ড",
+    englishCenter: "ইংলিশ সেন্টার",
+    more: "আরো",
+    login: "লগ-ইন",
+    classItems: ["ক্লাস ৬", "ক্লাস ৭", "ক্লাস ৮", "ক্লাস ৯", "ক্লাস ১০", "ক্লাস ১১", "ক্লাস ১২"],
+    skillsItems: ["ওয়েব ডেভেলপমেন্ট", "গ্রাফিক ডিজাইন", "ডিজিটাল মার্কেটিং", "ভাষা শিক্ষা"],
+    admissionItems: ["বিশ্ববিদ্যালয় ভর্তি", "মেডিকেল ভর্তি", "ইঞ্জিনিয়ারিং ভর্তি"],
+    englishItems: ["IELTS", "Spoken English", "Business English"],
+    moreItems: ["বই", "ব্লগ", "সাপোর্ট"],
+  },
+  en: {
+    searchPlaceholder: "Search for courses or school programs...",
+    mobileSearchPlaceholder: "Search...",
+    class: "Class 6-12",
+    skills: "Skills",
+    liveExam: "Live Exam",
+    admissionGuide: "Admission Guide",
+    englishCenter: "English Center",
+    more: "More",
+    login: "Login",
+    classItems: ["Class 6", "Class 7", "Class 8", "Class 9", "Class 10", "Class 11", "Class 12"],
+    skillsItems: ["Web Development", "Graphic Design", "Digital Marketing", "Language Learning"],
+    admissionItems: ["University Admission", "Medical Admission", "Engineering Admission"],
+    englishItems: ["IELTS", "Spoken English", "Business English"],
+    moreItems: ["Books", "Blog", "Support"],
+  },
+}

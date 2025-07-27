@@ -4,23 +4,23 @@ import React from "react";
 const CourseOutline = ({ features }) => {
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">{features.name}</h2>
-      <div className="grid md:grid-cols-2 gap-4">
+      <h2 className="md:text-2xl font-bold mb-4 py-5">{features.name}</h2>
+      <div className="grid md:grid-cols-2 gap-4 bg-zinc-900 text-white rounded-xl">
         {features.values.map((feature) => (
           <div
             key={feature.id}
-            className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg"
+            className="flex items-center md:items-start gap-4 p-3 md:p-8"
           >
             <Image
               src={feature.icon}
               alt=""
               width={40}
               height={40}
-              className="w-10 h-10 mt-1"
+              className="w-10 h-10"
             />
-            <div>
-              <h3 className="font-bold">{feature.title}</h3>
-              <p className="text-sm  ">{feature.subtitle}</p>
+            <div className="text-sm">
+              <h3 className="font-bold mb-3">{feature.title}</h3>
+              <p className="font-normal text-gray-400">{feature.subtitle}</p>
             </div>
           </div>
         ))}

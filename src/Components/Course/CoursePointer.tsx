@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 // A simple checkmark icon component. You can replace this with an icon library if you have one.
 const CheckmarkIcon = () => (
@@ -21,21 +21,19 @@ const CoursePointer = ({ data }) => {
   }
 
   return (
-    <div className="w-full max-w-5xl rounded-lg bg-white p-8 font-sans shadow-md">
+    <div className="w-full my-10 font-sans">
       {/* Section Title */}
-      <h2 className="mb-8 text-center text-3xl font-bold text-gray-800">
-        {data.name}
-      </h2>
+      <h2 className="mb-8 text-xl md:text-3xl font-bold text-gray-800">{data.name}</h2>
 
       {/* Grid container for the list items */}
-      <div className="grid grid-cols-1 gap-x-12 gap-y-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:border md:border-gray-300 rounded-2xl md:p-8 gap-x-12 gap-y-6 md:grid-cols-2">
         {data.values.map((item) => (
           // Each list item with an icon and text
           <div key={item.id} className="flex items-start">
             <div className="mt-1">
               <CheckmarkIcon />
             </div>
-            <p className="ml-3 text-base leading-relaxed text-gray-700">
+            <p className="ml-3 text-normal leading-relaxed text-gray-900">
               {item.text}
             </p>
           </div>

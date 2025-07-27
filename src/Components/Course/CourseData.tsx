@@ -1,43 +1,84 @@
-import HeroSection from "./HeroSection";
 import InstructorCard from "./Instructor";
-import FeaturesSection from "./Features";
-import CourseContent from "./CourseContent";
-import MediaContent from "../ui/MediaContent";
-import PurcessCard from "../ui/PurcessCard";
 import CourseTitle from "./CourseTitle";
 import CourseOutline from "./CourseOutLine";
-import Layout from "@/app/[lang]/course/[slug]/layout";
 import CourseEngagementCard from "./CourseEngagementCard";
 import CoursePointer from "./CoursePointer";
+import CourseDetails from "./CourseDetails"; // Renamed from CourseData to prevent recursion
+import CourseExclusiveFeature from "./CourseExclusiveFeature";
+import CourseTestimonial from "./CourseTextimonial";
+import CourseFaq from "./CourseFaq";
+import MediaContent from "../ui/MediaContent";
+import PurcessCard from "../ui/PurcessCard";
 
 export default function CourseData({ data }) {
-  const { title, description, media, checklist, sections, seo, cta_text } =
-    data;
+  if (!data) return null;
 
-  const instructor = sections.find((s) => s.type === "instructors")?.values[0];
+  const {
+    title = "Untitled Course",
+    description = "",
+    media,
+    checklist,
+    sections = [],
+    seo = { schema: [] },
+    cta_text,
+  } = data;
+
+  const instructor = sections.find((s) => s.type === "instructors")
+    ?.values?.[0];
   const features = sections.find((s) => s.type === "features");
   const about = sections.find((s) => s.type === "about");
   const CoursePointerData = sections.find((s) => s.type === "pointers");
-  const feature_explanations = sections.find((s) => s.type === "feature_explanations");
-  const CourseEngagementData = sections.find((s) => s.type === "group_join_engagement").values[0];
-  console.log({feature_explanations})
-  const schema = seo.schema.find(
-    (s) =>
-      s.meta_name === "ld-json" && s.meta_value.includes('"@type": "Product"')
+  const feature_explanations = sections.find(
+    (s) => s.type === "feature_explanations"
   );
-  const schemaData = schema ? JSON.parse(schema.meta_value) : {};
-  const originalPrice = parseFloat(schemaData?.offers?.price || 5000);
-  const discountedPrice = 3850;
+  const groupEngagement = sections.find(
+    (s) => s.type === "group_join_engagement"
+  );
+  const testimonials = sections.find((s) => s.type === "testimonials");
+  const faqData = sections.find((s) => s.type === "faq");
+  const CourseEngagementData = groupEngagement?.values?.[0];
+  console.log(media);
+  console.log(testimonials);
+  // Parse schema safely
+  let schemaData = {};
+  try {
+    const schema = seo?.schema?.find(
+      (s) =>
+        s.meta_name === "ld-json" && s.meta_value.includes('"@type": "Product"')
+    );
+    if (schema) {
+      schemaData = JSON.parse(schema.meta_value);
+    }
+  } catch (error) {
+    console.error("Schema parse error:", error);
+  }
 
   return (
     <>
+      <div className="block md:hidden">
+        <MediaContent media={media} />
+      </div>
       <CourseTitle title={title} description={description} />
-      <InstructorCard instructor={instructor} />
-      <CourseOutline features={features} />
-      <CourseEngagementCard data={CourseEngagementData} />
-      <CoursePointer data={CoursePointerData} />
-      
-      
+      <div className="block md:hidden">
+        <PurcessCard
+          button={data.cta_text?.name}
+          checklist={data.checklist}
+          originalPrice="1000"
+          discountedPrice="800"
+        />
+      </div>
+      {instructor && <InstructorCard instructor={instructor} />}
+      {features && <CourseOutline features={features} />}
+      {CourseEngagementData && (
+        <CourseEngagementCard data={CourseEngagementData} />
+      )}
+      {CoursePointerData && <CoursePointer data={CoursePointerData} />}
+      {about && <CourseDetails data={about} />}
+      {feature_explanations && (
+        <CourseExclusiveFeature data={feature_explanations} />
+      )}
+      {testimonials && <CourseTestimonial testimonials={testimonials} />}
+      {faqData && <CourseFaq data={faqData} />}
     </>
   );
 }

@@ -5,9 +5,9 @@ const PurcessCard = ({ button, checklist, originalPrice, discountedPrice }) => {
   const currency = "৳";
   
   return (
-    <div className="w-full border rounded-lg bg-white shadow-sm overflow-hidden">
+    <div className="w-full md:md:border rounded-lg bg-white shadow-sm overflow-hidden">
       <div className="p-5 text-center">
-        <div className="flex items-baseline justify-center gap-2 mb-3">
+        <div className="flex items-baseline md:justify-center gap-2 mb-3">
           <span className="text-3xl font-bold  ">
             {currency}{discountedPrice.toLocaleString("bn-BD")}
           </span>
@@ -15,11 +15,11 @@ const PurcessCard = ({ button, checklist, originalPrice, discountedPrice }) => {
             {currency}{originalPrice.toLocaleString("bn-BD")}
           </span>
         </div>
-        <button className="w-full py-3 rounded-lg font-semibold text-white bg-green-500 hover:bg-green-600 transition-colors">
+        <button className="w-full py-3 rounded-lg font-semibold text-white bg-green-800 hover:bg-green-800 transition-colors shadow-lg shadow-stone-700">
           {button}
         </button>
       </div>
-      <div className="p-5 border-t">
+      <div className="p-5 md:border-t">
         <h3 className="text-lg font-bold   mb-3">
           এই কোর্সে যা যা থাকছে
         </h3>
@@ -32,7 +32,7 @@ const PurcessCard = ({ button, checklist, originalPrice, discountedPrice }) => {
           ))}
         </ul>
       </div>
-      <div className="p-4 bg-gray-50 border-t text-center">
+      <div className="p-4 bg-gray-50 md:border-t text-center">
         <a href="#" className="text-green-600 font-semibold hover:underline">
           আমাদের সাপোর্ট টিমের সাথে কথা বলুন
         </a>
