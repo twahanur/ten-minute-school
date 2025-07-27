@@ -42,7 +42,9 @@ export default async function ProductPage({ params }: Props) {
 
   return (
     <div className="bg-white">
-      <HeaderWrapper />
+      <div className="sticky top-0 z-50">
+        <HeaderWrapper />
+      </div>
 
       <div className="">
         <div className="gap-4 md:px-20 px-3 text-black grid grid-cols-12 ">
