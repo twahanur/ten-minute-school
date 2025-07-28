@@ -1,22 +1,23 @@
-import Link from "next/link"
-import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react"
-import Image from "next/image"
+import Link from "next/link";
+import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="bg-gray-50 py-12 px-4 md:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Company Logo and Description */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 mb-10">
           <div className="lg:col-span-1">
             <Image
               src="https://10minuteschool.com/images/logo.svg"
-                alt="10 Minute School Logo"
-                width={150}
-                height={50}
-                className="mb-4"
+              alt="10 Minute School Logo"
+              width={150}
+              height={50}
+              className="mb-4"
             />
-            <p className="text-gray-600 mb-6 text-sm">ডাউনলোড করুন আমাদের মোবাইল অ্যাপ</p>
+            <p className="text-gray-600 mb-6 text-sm">
+              ডাউনলোড করুন আমাদের মোবাইল অ্যাপ
+            </p>
 
             {/* App Store Buttons */}
             <div className="flex flex-col sm:flex-row gap-3">
@@ -125,7 +126,9 @@ export default function Footer() {
 
           {/* Contact Information */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-4">আমাদের যোগাযোগ মাধ্যম</h3>
+            <h3 className="font-semibold text-gray-900 mb-4">
+              আমাদের যোগাযোগ মাধ্যম
+            </h3>
             <div className="space-y-3 text-sm">
               <div>
                 <span className="text-gray-600">কল করুন: </span>
@@ -135,18 +138,24 @@ export default function Footer() {
 
               <div>
                 <span className="text-gray-600">হোয়াটসঅ্যাপ: </span>
-                <span className="text-green-600 font-semibold">+8801896016252</span>
+                <span className="text-green-600 font-semibold">
+                  +8801896016252
+                </span>
                 <span className="text-gray-600">(24x7)</span>
               </div>
 
               <div>
                 <span className="text-gray-600">দেশের বাইরে থেকে: </span>
-                <span className="text-green-600 font-semibold">+880 9610916910</span>
+                <span className="text-green-600 font-semibold">
+                  +880 9610916910
+                </span>
               </div>
 
               <div>
                 <span className="text-gray-600">ইমেইল: </span>
-                <span className="text-green-600 font-semibold">support@10minuteschool.com</span>
+                <span className="text-green-600 font-semibold">
+                  support@10minuteschool.com
+                </span>
               </div>
 
               {/* Social Media Icons */}
@@ -188,9 +197,11 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-gray-200 pt-6 text-center">
-          <p className="text-sm text-gray-600">স্বত্ব © ২০১৫ - ২০২৫ টেন মিনিট স্কুল কর্তৃক সর্বস্বত্ব সংরক্ষিত</p>
+          <p className="text-sm text-gray-600">
+            স্বত্ব © ২০১৫ - ২০২৫ টেন মিনিট স্কুল কর্তৃক সর্বস্বত্ব সংরক্ষিত
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

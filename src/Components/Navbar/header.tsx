@@ -113,13 +113,7 @@ const Header = memo(({ className = "", onLanguageChange }: HeaderProps) => {
       </div>
 
       {/* Mobile Search Bar */}
-      <div className="md:hidden px-4 pb-4">
-        <SearchBar
-          placeholder={translation.mobileSearchPlaceholder}
-          onSearch={handleSearch}
-          isMobile={true}
-        />
-      </div>
+      
 
       {/* Mobile Menu */}
       <MobileMenu
@@ -129,7 +123,6 @@ const Header = memo(({ className = "", onLanguageChange }: HeaderProps) => {
         onLanguageToggle={handleLanguageToggle}
         onClose={handleMobileMenuClose}
       />
-
       {/* Overlay to close dropdowns when clicking outside */}
       {openDropdown && (
         <div

@@ -12,14 +12,8 @@ interface MobileMenuProps {
   onLanguageToggle: () => void
   onClose: () => void
 }
-
-/**
- * Mobile menu component
- * Renders mobile navigation overlay
- */
 const MobileMenu = memo(({ isOpen, translation, currentLanguage, onLanguageToggle, onClose }: MobileMenuProps) => {
   if (!isOpen) return null
-
   const navigationItems = [
     { label: translation.class, href: "#" },
     { label: translation.skills, href: "#" },
